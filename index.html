@@ -1,15 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <title>页面跳转</title>
-    <meta http-equiv="refresh" content="0; url=https://poet000.github.io/国男大冒险">
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏图片展示</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+        .game-card {
+            width: calc(25% - 20px);
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .game-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        @media (max-width: 1024px) {
+            .game-card {
+                width: calc(33.33% - 20px);
+            }
+        }
+        @media (max-width: 768px) {
+            .game-card {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .game-card {
+                width: calc(100% - 20px);
+            }
+        }
+    </style>
 </head>
-
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?21493421b87ce516ffb24e9937ef94ff";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
+<body>
+    <div class="container">
+        <div class="game-card">
+            <img src="1.jpg" alt="游戏1">
+        </div>
+        <div class="game-card">
+            <img src="2.jpg" alt="游戏2">
+        </div>
+        <div class="game-card">
+            <img src="3.jpg" alt="游戏3">
+        </div>
+        <div class="game-card">
+            <img src="4.jpg" alt="游戏4">
+        </div>
+        <!-- 可以继续添加更多的游戏卡片 -->
+    </div>
+</body>
+</html>
