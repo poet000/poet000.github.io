@@ -1,0 +1,43 @@
+# 将静态内容部署到 GitHub Pages 的简单工作流程
+名称：将静态内容部署到页面
+
+在：
+  #针对默认分支的个体上运动
+  推：推：推：
+    分支：[ “主要” ]
+
+  # 允许您从“操作”选项卡手动运行此工作流程
+  工作流程_调度：
+
+# 设置 GITHUB_TOKEN 的权限以允许部署到 GitHub Pages
+权限：
+  内容：阅读
+  页数：写
+  id-token ：写入
+
+# 仅允许一个队列运行，跳过队列的运行和最新队列的运行之间的队列运行。
+#但是，不要取消发射的运行，因为我们希望完成这些生产部署。
+系数：
+  组：“页面”
+  取消进行中：false
+
+职位：
+  # 单个部署作业，因为我们刚刚部署
+  部署：
+    环境：
+      名称： github页面
+      url ： $ {  { steps.deployment.outputs.page_url }   }
+    运行： ubuntu-latest
+    步骤：
+      -名称：结帐
+        使用： actions/checkout@v4
+      -名称：设置页面
+        使用： actions/configure-pages@v5
+      -名称：上传工件
+        使用： actions/upload-pages-artifact@v3
+        和：
+          # 上传整个存储库
+          小路：'。'
+      - name : 部署到 GitHub Pages
+        id ： 部署
+        使用： actions/deploy-pages@v4
