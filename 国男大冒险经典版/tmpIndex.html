@@ -1,0 +1,238 @@
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <link crossorigin="" rel="shortcut icon" type="image/x-icon" href="./img/logo-cf.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" property="og:description" content="请关注公众号：嘲讽">
+    <meta name="keywords" content="国男大冒险|国男模拟器|国男的一生">
+
+    <title>嘲讽-国男大冒险</title>
+    <style data-emotion="css" data-s="">
+        :root {
+            --swiper-theme-color: #007aff
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif
+        }
+
+        .mainlay {
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.09) 74%, rgba(0, 156, 238, 0.3));
+            position: relative;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0); /* 全透明背景 */
+            border-top: 1px solid rgba(255, 255, 255, 0.3); /* 半透明边框 */
+            padding: 10px 0;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .footer a {
+            margin: 5px;
+            text-decoration: none;
+            color: #8B9BAA;
+            font-weight: bold;
+        }
+
+        .text-a {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-top: -18px;
+            margin-bottom: 19px;
+            text-align: center;
+        }
+
+        .text-b {
+            font-size: 1.1rem;
+            font-weight: 360;
+            margin-bottom: 19px;
+            text-align: left;
+        }
+
+        .views {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .button {
+            color: rgb(255, 255, 255);
+            background: rgb(15, 136, 235);
+            border-radius: 999999px;
+            font-size: 18px;
+            font-weight: 700;
+            width: 240px;
+            height: 42px;
+            border: none;
+            cursor: pointer;
+            margin-left: -120px;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            z-index: 1;
+            margin: 10px 0;
+        }
+		.successButton {
+            color: rgb(255, 255, 255);
+            background: rgb(197, 169, 110);
+            border-radius: 999999px;
+            font-size: 18px;
+            font-weight: 700;
+            width: 240px;
+            height: 42px;
+            border: none;
+            cursor: pointer;
+            margin-left: -120px;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            z-index: 1;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div class="mainlay">
+            <div class="views">
+
+                <div class="text-a">
+                    <div>国男大冒险</div>
+                </div>
+
+                <div class="text-b">
+                    <div id="content"></div>
+                </div>
+				<div id="linkDiv" class="text-b" style="display:none;">
+					关键词：<a id="linkLabel" style="color:#0000ff;cursor:pointer;" target="_blank"></a>
+				</div>
+				<div id="btnList">
+					
+				</div>
+
+            </div>
+        </div>
+    </div>
+	<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- 【选择】 -->
+    <script>
+
+        function download(downurl, name) {
+            const a = document.createElement('a');
+            a.setAttribute('href', downurl);
+            a.click();
+        }
+
+        function xza() {
+            window.location.href = "./xza.html"
+        }
+
+        function xzb() {
+            window.location.href = "./xzb.html"
+        }
+		function getItem(id,json){
+			var tmp=null;
+			for(var i=0;i<json.length;i++){
+				if(json[i].id==id){
+					tmp=json[i];
+					break;
+				}
+			}
+			return tmp;
+		}
+		var allJson=[];
+		$(document).ready(function(e){
+			allJson=[
+				{
+					id:1,
+					content:"你是某国男性，简称国男，今年20岁，就读于某高校。今天你没有课，你决定：",
+					btnList:[{txt:'呆在宿舍',lastId:2},{txt:'出去逛逛',lastId:3}]
+				},
+				{
+					id:2,
+					content:'你打算在宿舍享受一下颓废的生活，于是点了份外卖开始打游戏。<br><br>几轮厮杀后，刚回宿舍的室友问你为什么在食堂对着女生手冲，你感觉有点莫名其妙。<br><br>直到你打开微信，才发现网上到处都是你公然猥亵女生的消息。可你今天根本没出过宿舍。<br><br>几天后，事件源头的女生表示此事纯属虚构，而你早已经社会性死亡。',
+					linkStr:'深圳大学食堂',//链接文字
+					linkSrc:'https://weibo.com/6239620007/L6iAi5T2l',//链接地址
+					btnList:[{txt:'如果能重来...',lastId:1}]//按钮
+				},
+				{
+					id:3,
+					content:'出门应该带上哪些东西好呢？你看着手机、平板、kindle、switch... 决定：',
+					btnList:[{txt:'全部都带上',lastId:4},{txt:'只带上必要的',lastId:9},{txt:'回到上一步',lastId:1}]
+				},
+				{
+					id:4,
+					content:'由于你的包太大，不小心碰到了一位学姐的屁股，她在社交网络上称你是色狼，你社会性死亡。',
+					linkStr:'清华老师回应学姐错告学弟',//链接文字
+					linkSrc:'https://weibo.com/2615417307/JuLwat2bs',//链接地址
+					btnList:[{txt:'如果能重来...',lastId:1},{txt:'回到上一步',lastId:3}]//按钮
+				},
+				{
+					id:9,
+					content:'你表示此事绝无回旋余地，对岳父闭门不见。<br><br>他离开时，你从窗户意外地看到他手持凶器，顿时后怕不已，不禁为刚才的决定感到庆幸。<br><br>你当机立断，迅速和父母一起搬了出去，并卖掉房子远走他乡。自此，你重获新生。',
+					btnList:[{txt:'恭喜通关',btnClass:'successButton',lastId:1}]
+				}
+			];
+			
+			loadItem(1);
+		});
+		function loadItem(id){
+			var info = getItem(id,allJson);
+			if(info != null){
+				$('#content').html(info.content);
+				if(info.linkSrc){
+					$('#linkLabel').html(info.linkStr);
+					$('#linkLabel').attr('onclick','window.open("'+info.linkSrc+'")');
+					$('#linkDiv').css('display','block');
+				}else{
+					$('#linkDiv').css('display','none');
+				}
+				if(info.btnList){
+					$('#btnList').html('');
+					for(var i=0;i<info.btnList.length;i++){
+						$('#btnList').append('<div class="'+(info.btnList[i].btnClass?info.btnList[i].btnClass:'button')+'" onclick="loadItem('+info.btnList[i].lastId+')">'+info.btnList[i].txt+'</div>');
+					}
+				}
+			}
+		}
+    </script>
+
+
+    <!-- 【页脚】 -->
+    <div class="footer">
+        <div class="footer-top">
+            <a href="../gy/wx-ds.html" >打赏</a>
+            <a href="../gy/wx-jq.html" >加群</a>
+            <a href="../gy/wx-tg.html" >投稿</a>
+        </div>
+        <div class="footer-bottom">
+            <a href="https://github.com/fengzi2333/GuoNanSimulator" >Copyright © fengzi2333</a>
+            <a href="../app/国男大冒险_1.0.1.apk" >国男大冒险APP</a>
+        </div>
+    </div>
+
+</body>
+
+    
+</html>
