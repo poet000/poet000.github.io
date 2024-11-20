@@ -8,7 +8,8 @@
                 body {
                     margin: 0;
                     padding: 0;
-                    font-family: Arial, sans-serif;
+                    background-image: linear-gradient(rgba(255, 255, 255, 0.09) 25%, rgba(0, 156, 238, 0.3));
+					font-family: Arial, sans-serif;
                 }
                 .container {
                     display: flex;
@@ -41,6 +42,12 @@
                     padding: 5px 0;
                     border-radius: 0 0 8px 8px;
                 }
+				.mainlay {
+					width: 100vw;
+					height: 100vh;
+					background-image: linear-gradient(rgba(255, 255, 255, 0.09) 74%, rgba(0, 156, 238, 0.3));
+					position: relative;
+				}
                 @media (max-width: 1024px) and (min-width: 768px) {
                     .game-card {
                         width: calc(33.33% - 20px); /* 平板电脑屏幕每行显示三张 */
@@ -54,6 +61,7 @@
         </style>
 </head>
 <body>
+	<div class="mainlay">
         <div class="container">
                 <div class="game-card">
                         <a href="./国男大冒险经典版/index.html" target="_blank">
@@ -81,12 +89,13 @@
                 </div>
                 <!-- 可以继续添加更多的游戏卡片 -->
         </div>
+	</div>
         <script>
                 //【艺术油漆】
-                      var hm = document.createElement("script");
+                      /*var hm = document.createElement("script");
                       hm.src = "https://yyyp.oss-cn-beijing.aliyuncs.com/CDN/BG/PaintStyleBg/PaintStyleBg.min.js";
                       var s = document.getElementsByTagName("title")[0];
-                      s.parentNode.insertBefore(hm, s);
+                      s.parentNode.insertBefore(hm, s);*/
                 
                 //【百度统计】
                 var _hmt = _hmt || [];
