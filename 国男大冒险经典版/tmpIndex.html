@@ -308,14 +308,14 @@
 				if(info.link){
 					$('#linkDiv').html("");
 					for(var i=0;i<info.link.length;i++){
-						$('#linkDiv').append('<div>关键词：<a onclick="window.open(\"'+info.link[i].src+'\")" style="color:#0000ff;cursor:pointer;" target="_blank">'+info.link[i].str+'</a></div>');
+						$('#linkDiv').append('<div>关键词：<a onclick="window.open(\''+info.link[i].src+'\')" style="color:#0000ff;cursor:pointer;" target="_blank">'+info.link[i].str+'</a></div>');
 					}
 					$('#linkDiv').css('display','block');
                 		}else if(info.linkSrc){
-							$('#linkDiv').html("");
+					$('#linkDiv').html("");
                 			/*$('#linkLabel').html(info.linkStr);
                 			$('#linkLabel').attr('onclick','window.open("'+info.linkSrc+'")');*/
-							$('#linkDiv').append('<div>关键词：<a onclick="window.open(\"'+info.linkStr+'\")" style="color:#0000ff;cursor:pointer;" target="_blank">'+info.linkStr+'</a></div>');
+					$('#linkDiv').append('<div>关键词：<a onclick="window.open(\''+info.linkStr+'\')" style="color:#0000ff;cursor:pointer;" target="_blank">'+info.linkStr+'</a></div>');
                 			$('#linkDiv').css('display','block');
                 		}else{
                 			$('#linkDiv').css('display','none');
