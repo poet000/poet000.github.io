@@ -5,7 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>嘲讽 - 404</title>
-<style type="text/css">
+<style type="text/css/javascript">
+
 body{font-family: "Segoe UI", "Lucida Grande", Helvetica, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;-moz-osx-font-smoothing: grayscale;-webkit-font-smoothing: antialiased;overflow-x: hidden;margin:0}
 html{margin:16px}
 a {color:#f03838}
@@ -15,6 +16,7 @@ h3 {font-size:20px}
 h4 {font-size:18px}
 h5 {font-size:16px}
 p, li{line-height: 1.6;font-size:16px}
+
 .main{
         text-align: center;
         border-radius: 20px;
@@ -26,8 +28,11 @@ p, li{line-height: 1.6;font-size:16px}
         transform: translate(-50%,-50%);
 }
 
-<%response.setHeader("Refresh","3;url=index.html");%>
-</style>
+//3秒后跳转指定页面
+setTimeout(window.location.href='index.html',3);
+
+</script>
+
 </head>
 <body>
 <div class="main">
