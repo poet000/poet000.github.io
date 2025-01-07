@@ -1,350 +1,382 @@
 <html lang="zh">
+
 <head>
-    <meta charset="utf-8">
-    <link crossorigin="" rel="shortcut icon" type="image/x-icon" href="./img/logo-cf.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" property="og:description" content="请关注公众号：嘲讽">
-    <meta name="keywords" content="国男大冒险|国男模拟器|国男的一生">
-    <title>嘲讽 - 国男大冒险经典版</title>
-    <style data-emotion="css" data-s="">
-        :root {
-          --swiper-theme-color: #007aff
-        }
-        
-        body {
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif
-        }
-        
-        .mainlay {
-          width: 100vw;
-          height: 100vh;
-          background-image: linear-gradient(rgba(255, 255, 255, 0.09) 74%, rgba(0, 156, 238, 0.3));
-          position: relative;
-        }
-
-        /* 页脚 */
-        .footer {
-          position: fixed;
-          bottom: 0;
-          width: 100%;
-          background-color: rgba(255, 255, 255, 0);
-          /* 全透明背景 */
-          border-top: 1px solid rgba(255, 255, 255, 0.3);
-          /* 半透明边框 */
-          padding: 10px 0;
-          text-align: center;
-          z-index: 2;
-        }
-
-        /* 页脚 */
-        .footer a {
-          margin: 5px;
-          text-decoration: none;
-          color: #8B9BAA;
-          font-weight: bold;
-        }
-        
-        .text-a {
-          font-size: 1.8rem;
-          font-weight: 500;
-          margin-top: -18px;
-          margin-bottom: 19px;
-          text-align: center;
-        }
-        
-        .text-b {
-          font-size: 1.1rem;
-          font-weight: 360;
-          margin-bottom: 19px;
-          text-align: left;
-        }
-        
-        .views {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-        
-        .button {
-          color: rgb(255, 255, 255);
-          background: rgb(15, 136, 235);
-          border-radius: 999999px;
-          font-size: 18px;
-          font-weight: 700;
-          width: 240px;
-          height: 42px;
-          border: none;
-          cursor: pointer;
-          margin-left: -120px;
-          display: flex;
-          -webkit-box-align: center;
-          align-items: center;
-          -webkit-box-pack: center;
-          justify-content: center;
-          z-index: 1;
-          margin: 10px 0;
-        }
-        
-        .successButton {
-          color: rgb(255, 255, 255);
-          background: rgb(197, 169, 110);
-          border-radius: 999999px;
-          font-size: 18px;
-          font-weight: 700;
-          width: 240px;
-          height: 42px;
-          border: none;
-          cursor: pointer;
-          margin-left: -120px;
-          display: flex;
-          -webkit-box-align: center;
-          align-items: center;
-          -webkit-box-pack: center;
-          justify-content: center;
-          z-index: 1;
-          margin: 10px 0;
-        }
-    </style>
+	<meta charset="utf-8">
+	<link crossorigin="" rel="shortcut icon" type="image/x-icon" href="./img/logo-cf.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" property="og:description" content="请关注公众号：嘲讽">
+	<meta name="keywords" content="国男大冒险|国男模拟器|国男的一生">
+	<title>嘲讽 - 国男大冒险经典版</title>
 </head>
+
 <body>
-    <div id="root">
-        <div class="mainlay">
-            <div style="float:right;height:65px;">
-                <div onclick="location.href='../index.html'" class="button">更多游戏</div>
-            </div>
-            <div class="views">
-                <div class="text-a">
-                    <div id="title">加载中···</div>
-                </div>
-                <div class="text-b">
-                    <div id="content"></div>
-                </div>
-                <div id="linkDiv" class="text-b" style="display:none;">
-                    <div>关键词：<a id="linkLabel" style="color:#0000ff;cursor:pointer;" target="_blank"></a></div>
-                </div>
-                <div id="btnList">
-                </div>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- 【选择】 -->
-    <script>
-        function getItem(id,json){
-        	var tmp=null;
-        	for(var i=0;i<json.length;i++){
-        		if(json[i].id==id){
-        			tmp=json[i];
-        			break;
-        		}
-        	}
-        	return tmp;
-        }
-        var allJson=[];
-        $(document).ready(function(e){
-        	allJson=[
-        		{
-        			id:1,
-        			content:"你是某国男性，简称国男，今年20岁，就读于某高校。今天你没有课，你决定：",
-        			btnList:[{txt:'呆在宿舍',lastId:2},{txt:'出去逛逛',lastId:3}]
-        		},
-        		{
-        			id:2,
-        			content:'你打算在宿舍享受一下颓废的生活，于是点了份外卖开始打游戏。<br><br>几轮厮杀后，刚回宿舍的室友问你为什么在食堂对着女生手冲，你感觉有点莫名其妙。<br><br>直到你打开微信，才发现网上到处都是你公然猥亵女生的消息。可你今天根本没出过宿舍。<br><br>几天后，事件源头的女生表示此事纯属虚构，而你早已经社会性死亡。',
-        			linkStr:'深圳大学食堂',//链接文字
-        			linkSrc:'https://weibo.com/6239620007/L6iAi5T2l',//链接地址
-        							link:[{str:'深圳大学食堂',src:'https://weibo.com/6239620007/L6iAi5T2l'}],
-        			btnList:[{txt:'如果能重来...',lastId:1}]
-        		},
-        		{
-        			id:3,
-        			content:'出门应该带上哪些东西好呢？你看着手机、平板、kindle、switch... 决定：',
-        			btnList:[{txt:'全部都带上',lastId:4},{txt:'只带上必要的',lastId:5}]
-        		},
-        		{
-        			id:4,
-        			content:'由于你的包太大，不小心碰到了一位学姐的屁股，她在社交网络上称你是色狼，你社会性死亡。',
-        			linkStr:'清华老师回应学姐错告学弟',//链接文字
-        			linkSrc:'https://weibo.com/2615417307/JuLwat2bs',//链接地址
-        							link:[{str:'清华老师回应学姐错告学弟',src:'https://weibo.com/2615417307/JuLwat2bs'}],
-        			btnList:[{txt:'如果能重来...',lastId:3}]
-        		},
-        		{
-        			id:5,
-        			content:'你带上手机和蓝牙耳机出门，在学校逛了一圈，看了看时间该吃午饭了。等你来到食堂，这里已经人满患，你选了一个看起来不太长的队伍走了过去：',
-        			btnList:[{txt:'跟紧前人防止被插队',lastId:6},{txt:'和前一个人保持距离',lastId:7}]
-        		},
-        		{
-        			id:6,
-        			content:'由于距离前面的女生太近，你被她拍了下来，并在社交网络上造谣你对她图谋不轨。照片迅速传播，你每次出门都被大家指指点点，终于社会性死亡。',
-        			linkStr:'大连海事大学女硕士食堂污蔑男生',//链接文字
-        			linkSrc:'https://www.baidu.com/s?wd=大连海事大学女硕士食堂污蔑男生',//链接地址
-        			btnList:[{txt:'如果能重来...',lastId:5}]
-        		},
-        		{
-        			id:7,
-        			content:'你和前一个人保持着距离，但是队伍移动得很慢，你打算：',
-        			btnList:[{txt:'玩手机打发时间',lastId:8},{txt:'静静的听歌就好',lastId:9}]
-        		},
-        		{
-        			id:8,
-        			content:'你忘了跟上前面的队伍，突然听到一个女生喊“你是不是插我队？！”接着一个玻璃瓶就碎在了你的后脑勺，虽然你最后制服了对方，但你也受伤住院。',
-        			linkStr:'广东医科大学玻璃瓶',//链接文字
-        			linkSrc:'https://www.baidu.com/s?wd=广东医科大学玻璃瓶',//链接地址
-        			btnList:[{txt:'如果能重来...',lastId:7}]
-        		},
-        		{
-        			id:9,
-        			content:'你跟着队伍打到了饭，吃饭时耳机没电了，便把耳机放到一旁，边吃饭边玩起手机。这时，你注意到一个女生在偷你耳机，你准备：',
-        			btnList:[{txt:'立即制止她',lastId:10},{txt:'假装没看到',lastId:11}]
-        		},
-        		{
-        			id:10,
-        			content:'你将小偷捉了现行，对方却表示：“抛开事实不谈，你坐了我常坐的位子难道就没错吗”，然后砸了你的耳机扬长而去。',
-        			linkStr:'华东理工大学耳机',//链接文字
-        			linkSrc:'https://www.baidu.com/s?wd=华东理工大学耳机',//链接地址
-        			btnList:[{txt:'如果能重来...',lastId:9}]
-        		},
-        		{
-        			id:11,
-        			content:'吃完了饭，你回到宿舍楼，刚吃饱的你不太想运动，但是电梯里已经站了几个女生，你决定：',
-        			btnList:[{txt:'坐电梯',lastId:12},{txt:'走楼梯',lastId:13}]
-        		},
-        		{
-        			id:12,
-        			content:'电梯是公共资源，大家都能用，你抱着这个想法走进电梯，却被电梯里的女生认为是抢占她们的资源，并对你网暴。事件发酵后，学校禁止了低楼层的男生使用电梯。',
-        			linkStr:'北京师范大学电梯',//链接文字
-        			linkSrc:'https://www.baidu.com/s?wd=北京师范大学电梯',//链接地址
-        			btnList:[{txt:'如果能重来...',lastId:11}]
-        		},
-        		{
-        			id:13,
-        			content:'你爬楼梯回到宿舍，然后无惊无险的毕业。你找到一份996的工作，贷款买了房和车，并通过相亲结婚。<br><br>婚后一年，你有了个儿子，转眼儿子便到了上小学的年纪，你肩上的担子更重了。<br><br>这天你破天荒的准时下班，你看时间还早，决定：',
-        			btnList:[{txt:'赚点外快',lastId:14},{txt:'回家休息',lastId:15}]
-        		},
-        		{
-        			id:14,
-        			content:'你在网约车平台注册了账号，平台推来两份可接订单，你选择：',
-        			btnList:[{txt:'第一份',lastId:16},{txt:'第二份',lastId:17}]
-        		},
-        		{
-        			id:16,
-        			content:'你选了第一份订单，叫车的是一位女性，目的地不算远。<br><br>你朝着记忆中的路线开了过去，没想到在快到目的地时，乘客突然跳车，并不治身亡，你被拘留二百天。',
-        			linkStr:'货拉拉司机周某春',//链接文字
-        			linkSrc:'https://weibo.com/1806128454/L55Qeu5zh',//链接地址
-        			btnList:[{txt:'如果能重来...',lastId:13}]
-        		},
-        		{
-        			id:17,
-        			content:'叫车的是一位肥硕的女性，手一直插在裤兜里。<br><br>目的地有点远，中间要走很长一段高速。<br><br>行驶途中，她突然从兜里掏出凶器，对着你的脖子连捅数刀。',
-        			linkStr:'2021年女子持刀连捅司机',//链接文字
-        			linkSrc:'https://www.baidu.com/s?wd=女子持刀连捅司机',//链接地址
-        			linkStr2:'2019年女大学生割喉司机1500元',//链接文字
-        			linkSrc2:'https://www.baidu.com/s?wd=2019年女大学生割喉司机1500元',//链接地址
-        							link:[
-        								{str:'深圳大学食堂',src:'https://www.baidu.com/s?wd=女子持刀连捅司机'},
-        								{str:'2019年女大学生割喉司机1500元',src:'https://www.baidu.com/s?wd=2019年女大学生割喉司机1500元'},
-        							],
-        			btnList:[{txt:'如果能重来...',lastId:13}]
-        		},
-        		{
-        			id:15,
-        			content:'工作了一天，你十分疲惫，决定回家休息。结果到了小区你发现停车位被陌生车辆占用，你决定：',
-        			btnList:[{txt:'换个车位',lastId:18},{txt:'联系车主',lastId:19}]
-        		},
-        		{
-        			id:18,
-        			content:'你找了个没人用的车位，就直接回家，却意外地发现门口放着一双陌生的男鞋。<br><br>怀着好奇与不安的心情，你走进了客厅，眼前的景象让你瞬间崩溃——你的妻子竟然和一个陌生男人在热烈地为彼此的爱意鼓掌庆祝。',
-        			btnList:[{txt:'如果能重来...',lastId:15}]
-        		},
-        		{
-        			id:19,
-        			content:'你拨打122联系车主挪车，对方接到通知后立刻下楼，开车离开了。回到家，<br><br>你发现老婆正在洗澡，于是疲惫的你就躺在沙发上小憩。<br><br>在你即将进入梦乡时，老婆的声音从浴室传来，她让你去接儿子回家。你：',
-        			btnList:[{txt:'去接',lastId:20},{txt:'不去',lastId:21}]
-        		},
-        		{
-        			id:20,
-        			content:'你把儿子接回了家。又和老婆响应国家号召生了二胎，并开始准备三胎。<br><br>可是随着两个儿子长大，他们和你的容貌差异越来越大，你看在眼里，决定：',
-        			btnList:[{txt:'装作不知道',lastId:22},{txt:'做亲子鉴定',lastId:23}]
-        		},
-        		{
-        			id:22,
-        			content:'你对两个儿子的容貌差异视若无睹，视如己出。<br><br>老婆对你很满意，不久，你们又生了第三胎，依然不像你。<br><br>为了供养孩子，你努力工作，奋斗到58岁还没退休，最终在工位上脑溢血猝死，至此断子绝孙。',
-        			btnList:[{txt:'如果能重来...',lastId:20}]
-        		},
-        		{
-        			id:23,
-        			content:'你悄悄带孩子做了亲子鉴定，发现两个儿子都和你没有血缘关系。<br><br>你找妻子理论，她却把你骂得狗血淋头，还说自己出轨都是因为你没用，于是你决定离婚。<br><br>你不再上交工资，并搬出去和父母一起住。这天岳父敲门，要为他女儿的事来赔礼，你决定：',
-        			btnList:[{txt:'见面聊聊',lastId:24},{txt:'闭门不见',lastId:25}]
-        		},
-        		{
-        			id:24,
-        			content:'你打开门，没想到岳父带着刀，他趁你不防砍倒了你，又砍倒了你的父母，然后报警自首。<br><br>最后你老婆出具谅解书，减轻了岳父的刑责，并带着你的家产改嫁了。',
-        			linkStr:'2021年女子持刀连捅司机',//链接文字
-        			linkSrc:'https://www.baidu.com/s?wd=女子持刀连捅司机',//链接地址
-        			btnList:[{txt:'如果能重来...',lastId:23}]
-        		},
-          		{
-        			id:25,
-        			content:'你表示此事绝无回旋余地，对岳父闭门不见。<br><br>他离开时，你从窗户意外地看到他手持凶器，顿时后怕不已，不禁为刚才的决定感到庆幸。<br><br>你当机立断，迅速和父母一起搬了出去，并卖掉房子远走他乡。自此，你重获新生。。',
-        			btnList:[{txt:'恭喜通关',btnClass:'successButton',lastId:1}]
-        		},
-        		{
-        			id:21,
-        			content:'你难得有时间休息，迷迷糊糊地拒绝了。<br><br>平时儿子不用接能回来，但今天却迟迟未归。<br><br>你找了一整晚，最终得知儿子被陌生女子骗到楼顶推下来摔死了。',
-        
-        			btnList:[{txt:'如果能重来...',lastId:19}]
-        		},
-        
-        	];
-        	$("#title").html("国男大冒险");
-        	loadItem(1);
-        });
-        function loadItem(id){
-        	var info = getItem(id,allJson);
-        	if(info != null){
-        		$('#content').html(info.content);
-        				if(info.link){
-        					$('#linkDiv').html("");
-        					for(var i=0;i<info.link.length;i++){
-        						$('#linkDiv').append('<div>关键词：<a onclick="window.open(\''+info.link[i].src+'\')" style="color:#0000ff;cursor:pointer;" target="_blank">'+info.link[i].str+'</a></div>');
-        					}
-        					$('#linkDiv').css('display','block');
-        		}else if(info.linkSrc){
-        					$('#linkDiv').html("");
-        			/*$('#linkLabel').html(info.linkStr);
-        			$('#linkLabel').attr('onclick','window.open("'+info.linkSrc+'")');*/
-        					$('#linkDiv').append('<div>关键词：<a onclick="window.open(\''+info.linkStr+'\')" style="color:#0000ff;cursor:pointer;" target="_blank">'+info.linkStr+'</a></div>');
-        			$('#linkDiv').css('display','block');
-        		}else{
-        			$('#linkDiv').css('display','none');
-        		}
-        		if(info.btnList){
-        			$('#btnList').html('');
-        			for(var i=0;i<info.btnList.length;i++){
-        				$('#btnList').append('<div class="'+(info.btnList[i].btnClass?info.btnList[i].btnClass:'button')+'" onclick="loadItem('+info.btnList[i].lastId+')">'+info.btnList[i].txt+'</div>');
-        			}
-        		}
-        	}
-        }
-    </script>
-    <!-- 【页脚】 -->
-        <div class="footer">
-                <div class="footer-top">
-                        <a href="/fl/sm/wx-ds.html">打赏</a>
-                        <a href="/fl/sm/wx-jq.html">加群</a>
-                        <a href="/fl/sm/wx-tg.html">投稿</a>
-                </div>
-                <div class="footer-bottom">
-                        <a href="https://github.com/fengzi2333/GuoNanSimulator">Copyright © fengzi2333</a>
-                </div>
-        </div>
+	<div class="div_title">
+		<div style="float:right;height:65px;">
+			<div onclick="location.href='../index.html'" class="title_button">更多游戏</div>
+		</div>
+	</div>
+	<div id="root">
+		<div class="div_mainlay">
+			<div class="views">
+				<div class="text-a">
+					<div id="title">加载中···</div>
+				</div>
+				<div class="text-b">
+					<div id="content"></div>
+				</div>
+				<div id="linkDiv" class="text-b" style="display:none;">
+					<div>关键词：<a id="linkLabel" style="color:#0000ff;cursor:pointer;" target="_blank"></a></div>
+				</div>
+				<div id="btnList">
+				</div>
+				<!-- 【页脚】 -->
+				<div class="footer">
+					<div class="footer-top">
+						<a href="/fl/sm/wx-ds.html">打赏</a>
+						<a href="/fl/sm/wx-jq.html">加群</a>
+						<a href="/fl/sm/wx-tg.html">投稿</a>
+					</div>
+					<div class="footer-bottom">
+						<a href="https://github.com/fengzi2333/GuoNanSimulator">Copyright © fengzi2333</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 </body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- 【选择】 -->
+<script>
+	function getItem(id, json) {
+		var tmp = null;
+		for (var i = 0; i < json.length; i++) {
+			if (json[i].id == id) {
+				tmp = json[i];
+				break;
+			}
+		}
+		return tmp;
+	}
+	var allJson = [];
+	$(document).ready(function (e) {
+		allJson = [
+			{
+				id: 1,
+				content: "你是某国男性，简称国男，今年20岁，就读于某高校。今天你没有课，你决定：",
+				btnList: [{ txt: '呆在宿舍', lastId: 2 }, { txt: '出去逛逛', lastId: 3 }]
+			},
+			{
+				id: 2,
+				content: '你打算在宿舍享受一下颓废的生活，于是点了份外卖开始打游戏。<br><br>几轮厮杀后，刚回宿舍的室友问你为什么在食堂对着女生手冲，你感觉有点莫名其妙。<br><br>直到你打开微信，才发现网上到处都是你公然猥亵女生的消息。可你今天根本没出过宿舍。<br><br>几天后，事件源头的女生表示此事纯属虚构，而你早已经社会性死亡。',
+				linkStr: '深圳大学食堂',//链接文字
+				linkSrc: 'https://weibo.com/6239620007/L6iAi5T2l',//链接地址
+				link: [{ str: '深圳大学食堂', src: 'https://weibo.com/6239620007/L6iAi5T2l' }],
+				btnList: [{ txt: '如果能重来...', lastId: 1 }]
+			},
+			{
+				id: 3,
+				content: '出门应该带上哪些东西好呢？你看着手机、平板、kindle、switch... 决定：',
+				btnList: [{ txt: '全部都带上', lastId: 4 }, { txt: '只带上必要的', lastId: 5 }]
+			},
+			{
+				id: 4,
+				content: '由于你的包太大，不小心碰到了一位学姐的屁股，她在社交网络上称你是色狼，你社会性死亡。',
+				linkStr: '清华老师回应学姐错告学弟',//链接文字
+				linkSrc: 'https://weibo.com/2615417307/JuLwat2bs',//链接地址
+				link: [{ str: '清华老师回应学姐错告学弟', src: 'https://weibo.com/2615417307/JuLwat2bs' }],
+				btnList: [{ txt: '如果能重来...', lastId: 3 }]
+			},
+			{
+				id: 5,
+				content: '你带上手机和蓝牙耳机出门，在学校逛了一圈，看了看时间该吃午饭了。等你来到食堂，这里已经人满患，你选了一个看起来不太长的队伍走了过去：',
+				btnList: [{ txt: '跟紧前人防止被插队', lastId: 6 }, { txt: '和前一个人保持距离', lastId: 7 }]
+			},
+			{
+				id: 6,
+				content: '由于距离前面的女生太近，你被她拍了下来，并在社交网络上造谣你对她图谋不轨。照片迅速传播，你每次出门都被大家指指点点，终于社会性死亡。',
+				linkStr: '大连海事大学女硕士食堂污蔑男生',//链接文字
+				linkSrc: 'https://www.baidu.com/s?wd=大连海事大学女硕士食堂污蔑男生',//链接地址
+				btnList: [{ txt: '如果能重来...', lastId: 5 }]
+			},
+			{
+				id: 7,
+				content: '你和前一个人保持着距离，但是队伍移动得很慢，你打算：',
+				btnList: [{ txt: '玩手机打发时间', lastId: 8 }, { txt: '静静的听歌就好', lastId: 9 }]
+			},
+			{
+				id: 8,
+				content: '你忘了跟上前面的队伍，突然听到一个女生喊“你是不是插我队？！”接着一个玻璃瓶就碎在了你的后脑勺，虽然你最后制服了对方，但你也受伤住院。',
+				linkStr: '广东医科大学玻璃瓶',//链接文字
+				linkSrc: 'https://www.baidu.com/s?wd=广东医科大学玻璃瓶',//链接地址
+				btnList: [{ txt: '如果能重来...', lastId: 7 }]
+			},
+			{
+				id: 9,
+				content: '你跟着队伍打到了饭，吃饭时耳机没电了，便把耳机放到一旁，边吃饭边玩起手机。这时，你注意到一个女生在偷你耳机，你准备：',
+				btnList: [{ txt: '立即制止她', lastId: 10 }, { txt: '假装没看到', lastId: 11 }]
+			},
+			{
+				id: 10,
+				content: '你将小偷捉了现行，对方却表示：“抛开事实不谈，你坐了我常坐的位子难道就没错吗”，然后砸了你的耳机扬长而去。',
+				linkStr: '华东理工大学耳机',//链接文字
+				linkSrc: 'https://www.baidu.com/s?wd=华东理工大学耳机',//链接地址
+				btnList: [{ txt: '如果能重来...', lastId: 9 }]
+			},
+			{
+				id: 11,
+				content: '吃完了饭，你回到宿舍楼，刚吃饱的你不太想运动，但是电梯里已经站了几个女生，你决定：',
+				btnList: [{ txt: '坐电梯', lastId: 12 }, { txt: '走楼梯', lastId: 13 }]
+			},
+			{
+				id: 12,
+				content: '电梯是公共资源，大家都能用，你抱着这个想法走进电梯，却被电梯里的女生认为是抢占她们的资源，并对你网暴。事件发酵后，学校禁止了低楼层的男生使用电梯。',
+				linkStr: '北京师范大学电梯',//链接文字
+				linkSrc: 'https://www.baidu.com/s?wd=北京师范大学电梯',//链接地址
+				btnList: [{ txt: '如果能重来...', lastId: 11 }]
+			},
+			{
+				id: 13,
+				content: '你爬楼梯回到宿舍，然后无惊无险的毕业。你找到一份996的工作，贷款买了房和车，并通过相亲结婚。<br><br>婚后一年，你有了个儿子，转眼儿子便到了上小学的年纪，你肩上的担子更重了。<br><br>这天你破天荒的准时下班，你看时间还早，决定：',
+				btnList: [{ txt: '赚点外快', lastId: 14 }, { txt: '回家休息', lastId: 15 }]
+			},
+			{
+				id: 14,
+				content: '你在网约车平台注册了账号，平台推来两份可接订单，你选择：',
+				btnList: [{ txt: '第一份', lastId: 16 }, { txt: '第二份', lastId: 17 }]
+			},
+			{
+				id: 16,
+				content: '你选了第一份订单，叫车的是一位女性，目的地不算远。<br><br>你朝着记忆中的路线开了过去，没想到在快到目的地时，乘客突然跳车，并不治身亡，你被拘留二百天。',
+				linkStr: '货拉拉司机周某春',//链接文字
+				linkSrc: 'https://weibo.com/1806128454/L55Qeu5zh',//链接地址
+				btnList: [{ txt: '如果能重来...', lastId: 13 }]
+			},
+			{
+				id: 17,
+				content: '叫车的是一位肥硕的女性，手一直插在裤兜里。<br><br>目的地有点远，中间要走很长一段高速。<br><br>行驶途中，她突然从兜里掏出凶器，对着你的脖子连捅数刀。',
+				linkStr: '2021年女子持刀连捅司机',//链接文字
+				linkSrc: 'https://www.baidu.com/s?wd=女子持刀连捅司机',//链接地址
+				linkStr2: '2019年女大学生割喉司机1500元',//链接文字
+				linkSrc2: 'https://www.baidu.com/s?wd=2019年女大学生割喉司机1500元',//链接地址
+				link: [
+					{ str: '深圳大学食堂', src: 'https://www.baidu.com/s?wd=女子持刀连捅司机' },
+					{ str: '2019年女大学生割喉司机1500元', src: 'https://www.baidu.com/s?wd=2019年女大学生割喉司机1500元' },
+				],
+				btnList: [{ txt: '如果能重来...', lastId: 13 }]
+			},
+			{
+				id: 15,
+				content: '工作了一天，你十分疲惫，决定回家休息。结果到了小区你发现停车位被陌生车辆占用，你决定：',
+				btnList: [{ txt: '换个车位', lastId: 18 }, { txt: '联系车主', lastId: 19 }]
+			},
+			{
+				id: 18,
+				content: '你找了个没人用的车位，就直接回家，却意外地发现门口放着一双陌生的男鞋。<br><br>怀着好奇与不安的心情，你走进了客厅，眼前的景象让你瞬间崩溃——你的妻子竟然和一个陌生男人在热烈地为彼此的爱意鼓掌庆祝。',
+				btnList: [{ txt: '如果能重来...', lastId: 15 }]
+			},
+			{
+				id: 19,
+				content: '你拨打122联系车主挪车，对方接到通知后立刻下楼，开车离开了。回到家，<br><br>你发现老婆正在洗澡，于是疲惫的你就躺在沙发上小憩。<br><br>在你即将进入梦乡时，老婆的声音从浴室传来，她让你去接儿子回家。你：',
+				btnList: [{ txt: '去接', lastId: 20 }, { txt: '不去', lastId: 21 }]
+			},
+			{
+				id: 20,
+				content: '你把儿子接回了家。又和老婆响应国家号召生了二胎，并开始准备三胎。<br><br>可是随着两个儿子长大，他们和你的容貌差异越来越大，你看在眼里，决定：',
+				btnList: [{ txt: '装作不知道', lastId: 22 }, { txt: '做亲子鉴定', lastId: 23 }]
+			},
+			{
+				id: 22,
+				content: '你对两个儿子的容貌差异视若无睹，视如己出。<br><br>老婆对你很满意，不久，你们又生了第三胎，依然不像你。<br><br>为了供养孩子，你努力工作，奋斗到58岁还没退休，最终在工位上脑溢血猝死，至此断子绝孙。',
+				btnList: [{ txt: '如果能重来...', lastId: 20 }]
+			},
+			{
+				id: 23,
+				content: '你悄悄带孩子做了亲子鉴定，发现两个儿子都和你没有血缘关系。<br><br>你找妻子理论，她却把你骂得狗血淋头，还说自己出轨都是因为你没用，于是你决定离婚。<br><br>你不再上交工资，并搬出去和父母一起住。这天岳父敲门，要为他女儿的事来赔礼，你决定：',
+				btnList: [{ txt: '见面聊聊', lastId: 24 }, { txt: '闭门不见', lastId: 25 }]
+			},
+			{
+				id: 24,
+				content: '你打开门，没想到岳父带着刀，他趁你不防砍倒了你，又砍倒了你的父母，然后报警自首。<br><br>最后你老婆出具谅解书，减轻了岳父的刑责，并带着你的家产改嫁了。',
+				linkStr: '2021年女子持刀连捅司机',//链接文字
+				linkSrc: 'https://www.baidu.com/s?wd=女子持刀连捅司机',//链接地址
+				btnList: [{ txt: '如果能重来...', lastId: 23 }]
+			},
+			{
+				id: 25,
+				content: '你表示此事绝无回旋余地，对岳父闭门不见。<br><br>他离开时，你从窗户意外地看到他手持凶器，顿时后怕不已，不禁为刚才的决定感到庆幸。<br><br>你当机立断，迅速和父母一起搬了出去，并卖掉房子远走他乡。自此，你重获新生。。',
+				btnList: [{ txt: '恭喜通关', btnClass: 'successButton', lastId: 1 }]
+			},
+			{
+				id: 21,
+				content: '你难得有时间休息，迷迷糊糊地拒绝了。<br><br>平时儿子不用接能回来，但今天却迟迟未归。<br><br>你找了一整晚，最终得知儿子被陌生女子骗到楼顶推下来摔死了。',
+
+				btnList: [{ txt: '如果能重来...', lastId: 19 }]
+			},
+
+		];
+		$("#title").html("国男大冒险");
+		loadItem(1);
+	});
+	function loadItem(id) {
+		var info = getItem(id, allJson);
+		if (info != null) {
+			$('#content').html(info.content);
+			if (info.link) {
+				$('#linkDiv').html("");
+				for (var i = 0; i < info.link.length; i++) {
+					$('#linkDiv').append('<div>关键词：<a onclick="window.open(\'' + info.link[i].src + '\')" style="color:#0000ff;cursor:pointer;" target="_blank">' + info.link[i].str + '</a></div>');
+				}
+				$('#linkDiv').css('display', 'block');
+			} else if (info.linkSrc) {
+				$('#linkDiv').html("");
+				/*$('#linkLabel').html(info.linkStr);
+				$('#linkLabel').attr('onclick','window.open("'+info.linkSrc+'")');*/
+				$('#linkDiv').append('<div>关键词：<a onclick="window.open(\'' + info.linkStr + '\')" style="color:#0000ff;cursor:pointer;" target="_blank">' + info.linkStr + '</a></div>');
+				$('#linkDiv').css('display', 'block');
+			} else {
+				$('#linkDiv').css('display', 'none');
+			}
+			if (info.btnList) {
+				$('#btnList').html('');
+				for (var i = 0; i < info.btnList.length; i++) {
+					$('#btnList').append('<div class=" ' + (info.btnList[i].btnClass ? info.btnList[i].btnClass : 'button') + '" onclick="loadItem(' + info.btnList[i].lastId + ')">' + info.btnList[i].txt + '</div>');
+				}
+			}
+		}
+	}
+</script>
+<style data-emotion="css" data-s="">
+	:root {
+		--swiper-theme-color: #007aff
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif
+	}
+
+	.div_title {
+		width: 100vw;
+		height: 10vh;
+		position: relative;
+	}
+
+	.div_mainlay {
+		margin-top: 10px;
+		width: 100vw;
+		height: 90vh;
+		background-image: linear-gradient(rgba(255, 255, 255, 0.09) 74%, rgba(0, 156, 238, 0.3));
+		position: relative;
+		overflow: auto;
+	}
+
+	.title_button {
+		color: rgb(255, 255, 255);
+		background: rgb(15, 136, 235);
+		border-radius: 999999px;
+		font-size: 18px;
+		font-weight: 700;
+		width: 100px;
+		height: 42px;
+		border: none;
+		cursor: pointer;
+		margin-top: 5px;
+		/* margin-left: -120px; */
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		justify-content: center;
+		z-index: 1;
+	}
+
+	/* 页脚 */
+	.footer {
+		bottom: 0;
+		width: 100%;
+		margin-top: 70px;
+		background-color: rgba(255, 255, 255, 0);
+		/* 全透明背景 */
+		border-top: 1px solid rgba(255, 255, 255, 0.3);
+		/* 半透明边框 */
+		/* padding: 10px 0; */
+		text-align: center;
+		z-index: 2;
+	}
+
+	/* 页脚 */
+	.footer a {
+		margin: 5px;
+		text-decoration: none;
+		color: #8B9BAA;
+		font-weight: bold;
+	}
+
+	.text-a {
+		font-size: 1.8rem;
+		font-weight: 500;
+		margin-top: 18px;
+		margin-bottom: 19px;
+		text-align: center;
+	}
+
+	.text-b {
+		font-size: 1.1rem;
+		font-weight: 360;
+		margin-bottom: 19px;
+		text-align: left;
+	}
+
+	.views {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 40px;
+	}
+
+	.button {
+		color: rgb(255, 255, 255);
+		background: rgb(15, 136, 235);
+		border-radius: 999999px;
+		font-size: 18px;
+		font-weight: 700;
+		width: 240px;
+		height: 42px;
+		border: none;
+		cursor: pointer;
+		margin-left: -120px;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		justify-content: center;
+		z-index: 1;
+		margin: 10px 0;
+	}
+
+	.successButton {
+		color: rgb(255, 255, 255);
+		background: rgb(197, 169, 110);
+		border-radius: 999999px;
+		font-size: 18px;
+		font-weight: 700;
+		width: 240px;
+		height: 42px;
+		border: none;
+		cursor: pointer;
+		margin-left: -120px;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		justify-content: center;
+		z-index: 1;
+		margin: 10px 0;
+	}
+</style>
+
 </html>
