@@ -11,8 +11,9 @@
 
 <body>
 	<div class="div_title">
-		<div style="float:right;height:65px;">
+		<div style="position: absolute; right: 0; display: flex; height: 65px; gap: 10px; padding-right: 20px;">
 			<div onclick="location.href='../index.html'" class="title_button">更多游戏</div>
+			<div onclick="share()" class="title_button">分享</div>
 		</div>
 	</div>
 	<div id="root">
@@ -284,6 +285,13 @@
 				}
 			}
 		}
+	}
+	function share() {
+		// 可以根据需要实现分享功能
+		//复制下面文案到粘贴板
+		var shareText = '男性小游戏(请复制链接到浏览器打开):https://poet000.github.io/yx\n如果打不开，当前是流量就换wifi，当前是wifi就换流量。移动卡和移动宽带打不开是正常的，可以用电信联通广电试试。';
+		navigator.clipboard.writeText(shareText);
+		alert('已复制以下内容到粘贴板: \n \n ' + shareText);
 	}
 </script>
 <style data-emotion="css" data-s="">

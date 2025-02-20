@@ -11,8 +11,9 @@
 
 <body>
 	<div class="div_title">
-		<div style="float:right;height:65px;">
+		<div style="position: absolute; right: 0; display: flex; height: 65px; gap: 10px; padding-right: 20px;">
 			<div onclick="location.href='../index.html'" class="title_button">更多游戏</div>
+			<div onclick="share()" class="title_button">分享</div>
 		</div>
 	</div>
 	<div id="root">
@@ -108,7 +109,7 @@
 			},
 			{
 				id: 8,
-				content: '你忘了跟上前面的队伍，突然听到一个女生喊“你是不是插我队？！”接着一个玻璃瓶就碎在了你的后脑勺，虽然你最后制服了对方，但你也受伤住院。',
+				content: '你忘了跟上前面的队伍，突然听到一个女生喊"你是不是插我队？！"接着一个玻璃瓶就碎在了你的后脑勺，虽然你最后制服了对方，但你也受伤住院。',
 				link: [
 					{ str: '广东医科大学玻璃瓶', src: 'https://www.baidu.com/s?wd=广东医科大学玻璃瓶' },
 				],
@@ -121,7 +122,7 @@
 			},
 			{
 				id: 10,
-				content: '你将小偷捉了现行，对方却表示：“抛开事实不谈，你坐了我常坐的位子难道就没错吗”，然后砸了你的耳机扬长而去。',
+				content: '你将小偷捉了现行，对方却表示："抛开事实不谈，你坐了我常坐的位子难道就没错吗"，然后砸了你的耳机扬长而去。',
 				link: [
 					{ str: '华东理工大学耳机', src: 'https://www.baidu.com/s?wd=华东理工大学耳机' },
 				],
@@ -249,6 +250,13 @@
 				}
 			}
 		}
+	}
+	function share() {
+		// 可以根据需要实现分享功能
+		//复制下面文案到粘贴板
+		var shareText = '男性小游戏(请复制链接到浏览器打开):https://poet000.github.io/yx\n如果打不开，当前是流量就换wifi，当前是wifi就换流量。移动卡和移动宽带打不开是正常的，可以用电信联通广电试试。';
+		navigator.clipboard.writeText(shareText);
+		alert('已复制以下内容到粘贴板: \n \n ' + shareText);
 	}
 </script>
 <style data-emotion="css" data-s="">
