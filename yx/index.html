@@ -1,157 +1,164 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>嘲讽 - 恐怖游戏名录</title>
-        <meta name="description" property="og:description" content="请关注公众号：嘲讽">
-	       <meta name="keywords" content="恐怖游戏|中式恐怖|小游戏|成人小游戏|国男小游戏">
-        <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嘲讽 - 恐怖游戏名录</title>
+    <meta name="description" property="og:description" content="请关注公众号：嘲讽">
+    <meta name="keywords" content="恐怖游戏|中式恐怖|小游戏|成人小游戏|国男小游戏">
+    <style>
         body {
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+            font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.09) 74%, rgba(0, 156, 238, 0.3));
         }
-                
-                .container {
-                	display: flex;
-                	flex-wrap: wrap;
-                	justify-content: center;
-                	padding: 10px;
-                }
-                
-                .game-card {
-                	width: calc(25% - 20px);
-                	/* 默认情况下，电脑屏幕每行显示四张 */
-                	margin: 10px;
-                	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                	overflow: hidden;
-                	border-radius: 8px;
-                	position: relative;
-                }
-                
-                .game-card img {
-                	width: 100%;
-                	height: auto;
-                	display: block;
-                	border-radius: 8px;
-                }
-                
-                .game-card .title {
-                	position: absolute;
-                	bottom: 0;
-                	left: 0;
-                	width: 100%;
-                	background-color: rgba(0, 0, 0, 0.5);
-                	color: white;
-                	text-align: center;
-                	padding: 5px 0;
-                	border-radius: 0 0 8px 8px;
-                }
-                
-                .mainlay {
-                	width: 100vw;
-                	height: 100vh;
-                	background-image: linear-gradient(rgba(255, 255, 255, 0.09) 74%, rgba(0, 156, 238, 0.3));
-                	position: relative;
-                }
-                
-                @media (max-width: 1024px) and (min-width: 768px) {
-                	.game-card {
-                		width: calc(33.33% - 20px);
-                		/* 平板电脑屏幕每行显示三张 */
-                	}
-                }
-                
-                @media (max-width: 768px) {
-                	.game-card {
-                		width: calc(50% - 20px);
-                		/* 手机屏幕每行显示两张 */
-                	}
-                }
-                
-                /* 页脚 */
-                .footer {
-                	position: fixed;
-                	bottom: 0;
-                	width: 100%;
-                	background-color: rgba(255, 255, 255, 0);
-                	/* 全透明背景 */
-                	border-top: 1px solid rgba(255, 255, 255, 0.3);
-                	/* 半透明边框 */
-                	padding: 10px 0;
-                	text-align: center;
-                	z-index: 2;
-                }
-                
-                /* 页脚 */
-                .footer a {
-                	margin: 5px;
-                	text-decoration: none;
-                	color: #8B9BAA;
-                	font-weight: bold;
-                }
-                
-        </style>
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .game-card {
+            width: calc(25% - 20px);
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .game-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+        
+        .game-card .title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .mainlay {
+            width: 100vw;
+            position: relative;
+            flex: 1;
+        }
+        
+        @media (max-width: 1024px) and (min-width: 768px) {
+            .game-card {
+                width: calc(33.33% - 20px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .game-card {
+                width: calc(50% - 20px);
+            }
+        }
+        
+        /* 链接区域样式 */
+        .links-area {
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .links-area a {
+            margin: 5px;
+            text-decoration: none;
+            color: #8B9BAA;
+            font-weight: bold;
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            /* 移除 border-top */
+        }
+        
+        .footer-disclaimer {
+            color: #8B9BAA;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
-        <div class="mainlay">
-                <div class="container">
-                        <div class="game-card">
-                                <a href="./国男大冒险/index.html" target="_blank">
-                                        <img src="./img/国男大冒险.png" alt="封面">
-                                        <div class="title">国男大冒险</div>
-                                </a>
-                        </div>
-                        <div class="game-card">
-                                <a href="./婚恋大冒险/index.html" target="_blank">
-                                        <img src="./img/婚恋大冒险.png" alt="封面">
-                                        <div class="title">婚恋大冒险</div>
-                                </a>
-                        </div>
-                        <div class="game-card">
-                                <a href="#" target="_blank">
-                                        <img src="./img/国男大冒险2.png" alt="封面">
-                                        <div class="title">敬请期待</div>
-                                </a>
-                        </div>
-                        <div class="game-card" onclick="showAlert()">
-                                <!-- 【下面路径改为#，上面加个onclick="showAlert()】 -->
-                                <a href="#" target="_blank">
-                                        <img src="./img/婚恋大冒险2.png" alt="封面">
-                                        <div class="title">敬请期待</div>
-                                </a>
-                        </div>
-                        <!-- 可以继续添加更多的游戏卡片 -->
-                </div>
+    <div class="mainlay">
+        <div class="container">
+            <div class="game-card">
+                <a href="./国男大冒险/index.html" target="_blank">
+                    <img src="./img/国男大冒险.png" alt="封面">
+                    <div class="title">国男大冒险</div>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="./婚恋大冒险/index.html" target="_blank">
+                    <img src="./img/婚恋大冒险.png" alt="封面">
+                    <div class="title">婚恋大冒险</div>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="#" target="_blank">
+                    <img src="./img/国男大冒险2.png" alt="封面">
+                    <div class="title">敬请期待</div>
+                </a>
+            </div>
+            <div class="game-card" onclick="showAlert()">
+                <a href="#" target="_blank">
+                    <img src="./img/婚恋大冒险2.png" alt="封面">
+                    <div class="title">敬请期待</div>
+                </a>
+            </div>
         </div>
-        <script>
-                // 添加点击事件处理函数
-                function showAlert() {
-                    alert('正在开发中...');
-                }
-                
-                //【百度统计】
-                var _hmt = _hmt || [];
-                (function() {
-                  var hm = document.createElement("script");
-                  hm.src = "https://hm.baidu.com/hm.js?21493421b87ce516ffb24e9937ef94ff";
-                  var s = document.getElementsByTagName("script")[0]; 
-                  s.parentNode.insertBefore(hm, s);
-                })();
-                
-        </script>
-        <!-- 【页脚】 -->
-        <div class="footer">
-                <div class="footer-top">
-                        <a href="../sm/wx-ds.html">打赏</a>
-                        <a href="../sm/wx-jq.html">进群</a>
-                        <a href="../sm/wx-rh.html">入伙</a>
-                </div>
-                <div class="footer-bottom">
-                        <a href="../app/国男大冒险_1.0.1.apk">下载恐怖游戏APP</a>
-                </div>
+        
+        <!-- 链接区域 -->
+        <div class="links-area">
+            <div class="footer-top">
+                <a href="../sm/wx-ds.html">打赏</a>
+                <a href="../sm/wx-jq.html">进群</a>
+                <a href="../sm/wx-rh.html">入伙</a>
+            </div>
+            <div class="footer-bottom">
+                <a href="../app/国男大冒险_1.0.1.apk">下载恐怖游戏APP</a>
+            </div>
         </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <div class="footer">
+        <div class="footer-disclaimer">
+            游戏仅供娱乐，请勿代入现实。
+        </div>
+    </div>
+
+    <script>
+        function showAlert() {
+            alert('正在开发中...');
+        }
+        
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?21493421b87ce516ffb24e9937ef94ff";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </body>
 </html>
