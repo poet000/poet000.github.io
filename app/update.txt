@@ -1,16 +1,16 @@
 {更新:
-【更新版本】1.0.1【END】
+【更新版本】1.0.2【END】
 【更新大小】2.4M【END】
-【更新内容】国男大冒险安卓版更新【END】
-【更新链接】https://poet000.github.io/app/1.0.1.apk【END】
+【更新内容】恐怖游戏本地版【END】
+【更新链接】https://lanzoux.com/tp/idoK62pq7plc【END】
 :更新}
 
 
 {通知:
 【通知开关】开【END】
-【通知标题】嘲讽【END】
-【通知内容】点此查看更多游戏【END】
-【通知网址】https://poet000.github.io【END】
+【通知标题】恐怖游戏【END】
+【通知内容】请更新软件版本【END】
+【通知网址https://lanzoux.com/tp/idoK62pq7plc【END】
 :通知}
 
 
