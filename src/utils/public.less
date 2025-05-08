@@ -1,0 +1,52 @@
+// 公共
+.title_button {
+  color: rgb(255, 255, 255);
+  background: rgb(15, 136, 235);
+  border-radius: 999999px;
+  font-size: 18px;
+  font-weight: 700;
+  width: 100px;
+  height: 42px;
+  border: none;
+  cursor: pointer;
+  margin-top: 5px;
+  /* margin-left: -120px; */
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* 动画 */ 
+.Blur {
+  font-weight: 600;
+  filter: blur(5px); /* 初始设置文本模糊度 */
+  transition: all .5s ease; /* 添加过渡效果使模糊度过渡平滑 */
+}
+
+.Blur:hover {
+  filter: blur(0); /* 鼠标悬停时清除文本模糊度 */
+}
+
+.drift {
+  animation-duration: 9s;
+  animation-name: drift;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  margin-left: 5%;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0) rotate(0);
+  }
+  50% {
+      transform: translate(-5%,5%) rotate(2deg);
+  }
+  100% {
+      transform: translate(5%,5%) rotate(-1deg);
+  }
+}
