@@ -1,0 +1,358 @@
+<html lang="zh">
+
+<head>
+	<meta charset="utf-8">
+	<link crossorigin="" rel="shortcut icon" type="image/x-icon" href="./img/logo-cf.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" property="og:description" content="请关注公众号：嘲讽">
+	<meta name="keywords" content="图书馆规则怪谈|国男大冒险|国男大冒险经典版|国男模拟器|国男的一生|小游戏|国男小游戏">
+	<title>嘲讽 - 图书馆规则怪谈</title>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DHQJEB2VL9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DHQJEB2VL9');
+</script>
+<body>
+	<div class="div_title">
+		<div style="position: absolute; right: 0; display: flex; height: 65px; gap: 10px; padding-right: 20px;">
+			<div onclick="location.href='../index.html'" class="title_button">下载</div>
+			<div onclick="share()" class="title_button">分享</div>
+		</div>
+	</div>
+	<div id="root">
+		<div class="div_mainlay">
+			<div class="views">
+				<div class="text-a">
+					<div id="title">加载中···</div>
+				</div>
+				<div class="text-b">
+					<div id="content"></div>
+				</div>
+				<div id="linkDiv" class="text-b" style="display:none;">
+					<div>关键词：<a id="linkLabel" style="color:#0000ff;cursor:pointer;" target="_blank"></a></div>
+				</div>
+				<div id="btnList">
+				</div>
+				<!-- 【页脚】 -->
+				<div class="footer">
+					<div class="footer-top">
+						<a href="/sm/wx-ds.html">打赏</a>
+						<a href="/sm/wx-jq.html">进群</a>
+						<a href="/sm/wx-rh.html">入伙</a>
+                                                <a href="https://bing.com/search?q=嘲讽-恐怖游戏名录">搜索</a>
+					</div>
+					<div class="footer-bottom">
+						<a href="https://github.com/poet000/poet000.github.io">Copyright © poet000</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5476907635092903"
+	crossorigin="anonymous"></script>
+<!-- footad -->
+<ins class="adsbygoogle"
+	style="display:block"
+	data-ad-client="ca-pub-5476907635092903"
+	data-ad-slot="4672051791"
+	data-ad-format="auto"
+	data-full-width-responsive="true"></ins>
+<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- 【选择】 -->
+<script>
+	function getItem(id, json) {
+		var tmp = null;
+		for (var i = 0; i < json.length; i++) {
+			if (json[i].id == id) {
+				tmp = json[i];
+				break;
+			}
+		}
+		return tmp;
+	}
+	var allJson = [];
+	$(document).ready(function (e) {
+		allJson = [
+			{
+				id: 1,
+				content: "你是高三男生，准备报考诬汉大学，高考前你来学校参观，无意间闯入图书馆，触发了图书馆规则怪谈副本，请问是否开始闯关？",
+				btnList: [{ txt: '放弃闯关', lastId: 2 }, { txt: '开始游戏', lastId: 3 }]
+			},
+			{
+				id: 2,
+				content: '你感觉图书馆危机四伏，吓得马上跑了出去，当天就改了志愿。<br><br>不久后，你看到该校相关新闻，后怕不已，十分庆幸当初的果断。',
+				link: [
+					{ str: '诬汉大学图书馆诬告', src: 'https://www.baidu.com/s?wd=诬汉大学图书馆诬告' },
+				],
+				btnList: [{ txt: '逃过一劫', btnClass: 'successButton', lastId: 1 }]
+			},
+			{
+				id: 3,
+				content: '你进图书馆借了本书，准备找个位置坐下来看，但找了一圈，除了一个女生对面还有位置，其他座位都有人。你决定：',
+				btnList: [{ txt: '再找其他位置', lastId: 4 }, { txt: '坐在女生对面', lastId: 6 }]
+
+			},
+			{
+				id: 4,
+				content: '经过耐心的寻找，你终于找到一张没人的桌子，但你坐下不久后，一个女生也坐到你对面。你决定：',
+				btnList: [{ txt: '赶走对方', lastId: 5 }, { txt: '继续看书', lastId: 6 }]
+			},
+			{
+				id: 5,
+				content: '对方除了朝你翻了个白眼，并没有理会你。你有点不舒服，决定：',
+				btnList: [{ txt: '逃离图书馆', lastId: 2 }, { txt: '设法对付她', lastId: 6 }]
+			},
+			{
+				id: 6,
+				content: '你坐在位置上，正看着书思索，但腿突然麻了，非常难受，你决定：',
+				btnList: [{ txt: '伸手去揉', lastId: 7 }, { txt: '出去走走', lastId: 8 }]
+			},
+			{
+				id: 7,
+				content: '看到你把手伸到桌下，对面女生立即跳起来大声呵斥，说你在对着她打飞机，众人纷纷围了上来。<br><br>你百口莫辩，当场社会性死亡。从此你郁郁寡欢，高考也被影响，连本科都没考上，只能去技校。',
+				btnList: [{ txt: '如果能重来...', lastId: 6 }]
+			},
+			{
+				id: 8,
+				content: '你走了一会儿腿麻就恢复了，但由于周围没有空位，只能回到原来的位置。可坐下不久后，裆部又奇痒难耐，想来是湿疹犯了。你决定：',
+				btnList: [{ txt: '求助对面', lastId: 9 }, { txt: '自己挠挠', lastId: 10 }]
+			},
+			{
+				id: 9,
+				content: '你向对面女生求助，她却勃然大怒，立即跳起来骂你，说你想让她帮你打飞机，众人纷纷围了上来。<br><br>你百口莫辩，当场社会性死亡。从此你郁郁寡欢，高考也被影响，连本科都没考上，只能去技校。',
+				btnList: [{ txt: '如果能重来...', lastId: 8 }]
+			},
+			{
+				id: 10,
+				content: '你挠到一半，还没完全挠舒服，对面女生也把一只手伸向桌下。你觉得有些奇怪，决定：',
+				btnList: [{ txt: '不管她继续挠', lastId: 11 }, { txt: '把手放回桌上', lastId: 12 }]
+			},
+			{
+				id: 11,
+				content: '女生用两个小时偷拍下你挠大腿根的视频，并站起来质问你为什么要对着她打飞机.<br><br>你由于太过尴尬，大脑一片空白，只想快点把这事给过去，于是被她借机逼着写下道歉书。<br><br>随即她就在网上曝光这事，还找律师起诉了你。事情很快上了热搜，你火遍全网。<br><br>你不仅被学校处分，还社会性死亡，全家遭受非议，你被网暴到抑郁，爷爷也因为这事被气死。',
+				btnList: [{ txt: '如果能重来...', lastId: 10 }]
+			},
+			{
+				id: 12,
+				content: '你把手放回桌上，对面的女生却突然面露狰狞，用不善的眼神看着你。你决定：',
+				btnList: [{ txt: '立即离开', lastId: 13 }, { txt: '静观其变', lastId: 15 }]
+			},
+			{
+				id: 13,
+				content: '你想离开，这位女生却拦住不让你走，还张开血盆大口准备质问。你决定：',
+				btnList: [{ txt: '继续跑路', lastId: 2 }, { txt: '准备战斗', lastId: 14 }]
+			},
+			{
+				id: 14,
+				content: '在你决定正面迎接战斗的霎那，女生也终于发出战吼:“啊啊啊啊啊啊啊... 你为什么对着我打飞机！”，你厉声否认，表示自己不会对着丑逼打飞机，她这是羞辱你的审美。女生气得直蹦，以一米五的身高蹦到一米八的高度，甩起两条粗壮的大腿一屁股坐在地上，震得图书馆都摇晃起来。<br><br>这丝滑的连招惊得你都呆了片刻，谁知她却乘机冲上来就要挠你。你情急之中迅速伸手阻挡，却正巧一巴掌扇在她的脸上，把还没靠近的矮胖女生扇得原地转了三圈。女生肥头大耳皆气得通红，她呼吸急促，胸口快速起伏，又发出震耳欲聋的战吼:“啊啊啊啊啊啊啊...”，并迈着地动山摇的步伐向你发起了冲锋。<br><br>你心想这要是被撞到估计要伤得不轻，只能使出雷欧飞踢，将她狠狠踹倒在地。战斗结束，警察很快到达现场，在了解经过并调解后，双方达成和解，你顺利脱身。',
+				link: [
+					{ str: '女子误以为被偷拍 争论后被多名男子殴打 最终双方和解', src: 'https://www.baidu.com/s?wd=女子误以为被偷拍争论后被多名男子殴打' },
+				],
+				btnList: [{ txt: '恭喜通关', btnClass: 'successButton', lastId: 1 }, { txt: '查看规则', btnClass: 'successButton', lastId: 16 }]
+			},
+			{
+				id: 15,
+				content: '你正奇怪的打量女生，她却突然暴起，蹦到你面前发出战吼:“啊啊啊啊啊啊啊啊...”。你吓了一跳，决定',
+				btnList: [{ txt: '马上跑路', lastId: 2 }, { txt: '准备战斗', lastId: 14 }]
+			},
+			{
+				id: 16,
+				content: '恭喜解锁图书馆怪谈规则： <br><br>1.单独一人时尽量不跟女生同一张桌子。<br>2.如果对面有女生，双手必须放在桌上。<br>3.手忍不住放桌底时，请尽量远离裆部。<br>4.裆部痒痒时，千万不能通过挠挠解决。<br>5.当对面女生一只手消失不见，请赶紧将双手摆桌上。<br>6.当对面女生面露狰狞，请赶紧离开座位逃离图书馆。<br>7.一旦逃离失败被拦截，注意闭口不要回答对方任何问题。<br>8.一旦狰狞女开始变态发疯，注意立刻进入武士决斗姿态。<br>9.如被对方纠缠住，唯有使用物理击败对方，方能安全离开现场。<br><br>如在学校不慎遇到克苏鲁，完成以上怪谈任务才能获得大学认可顺利毕业，否则请自觉写道歉信，接受学校处分并承担舆论官司一切后果。',
+				btnList: [{ txt: '返回主页', lastId: 1 }]
+			},
+
+		];
+		$("#title").html("图书馆怪谈");
+		loadItem(1);
+	});
+	function loadItem(id) {
+		var info = getItem(id, allJson);
+		if (info != null) {
+			$('#content').html(info.content);
+			if (info.link) {
+				$('#linkDiv').html("");
+				for (var i = 0; i < info.link.length; i++) {
+					$('#linkDiv').append('<div>关键词：<a onclick="window.open(\'' + info.link[i].src + '\')" style="color:#0000ff;cursor:pointer;" target="_blank">' + info.link[i].str + '</a></div>');
+				}
+				$('#linkDiv').css('display', 'block');
+			} else if (info.linkSrc) {
+				$('#linkDiv').html("");
+				/*$('#linkLabel').html(info.linkStr);
+				$('#linkLabel').attr('onclick','window.open("'+info.linkSrc+'")');*/
+				$('#linkDiv').append('<div>关键词：<a onclick="window.open(\'' + info.linkSrc + '\')" style="color:#0000ff;cursor:pointer;" target="_blank">' + info.linkStr + '</a></div>');
+				$('#linkDiv').css('display', 'block');
+			} else {
+				$('#linkDiv').css('display', 'none');
+			}
+			if (info.btnList) {
+				$('#btnList').html('');
+				for (var i = 0; i < info.btnList.length; i++) {
+					$('#btnList').append('<div class=" ' + (info.btnList[i].btnClass ? info.btnList[i].btnClass : 'button') + '" onclick="loadItem(' + info.btnList[i].lastId + ')">' + info.btnList[i].txt + '</div>');
+				}
+			}
+		}
+	}
+	function share() {
+		//可以根据需要实现分享功能
+		//复制下面文案到剪贴板
+		var shareText = '恐怖游戏官网：poet000.github.io \n\n请复制链接到浏览器打开，无法访问可尝试切换网络，或发送暗号【恐怖游戏】给#公众号:嘲讽，获取本地版游戏。';
+		navigator.clipboard.writeText(shareText);
+		alert('已复制以下内容到剪贴板: \n \n ' + shareText);
+	}
+</script>
+<style data-emotion="css" data-s="">
+	:root {
+		--swiper-theme-color: #007aff
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif
+	}
+
+	.div_title {
+		width: 100vw;
+		height: 10vh;
+		position: fixed;
+		top: 0;
+		background: transparent;
+		pointer-events: none;
+		z-index: 1000;
+	}
+
+	.div_title > div {
+		pointer-events: auto;  /* 恢复按钮的点击事件 */
+	}
+
+	.div_mainlay {
+		margin-top: 10px;
+		width: 100vw;
+		height: 100vh;
+		background-image: linear-gradient(rgba(255, 255, 255, 0.09) 74%, rgba(0, 156, 238, 0.3));
+		position: relative;
+		overflow: auto;
+		display: flex;           /* 添加flex布局 */
+		justify-content: center; /* 水平居中 */
+		align-items: center;     /* 垂直居中 */
+	}
+
+	.title_button {
+		color: rgb(255, 255, 255);
+		background: rgb(15, 136, 235);
+		border-radius: 999999px;
+		font-size: 18px;
+		font-weight: 700;
+		width: 100px;
+		height: 42px;
+		border: none;
+		cursor: pointer;
+		margin-top: 5px;
+		/* margin-left: -120px; */
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		justify-content: center;
+		z-index: 1;
+	}
+
+	/* 页脚 */
+	.footer {
+		bottom: 0;
+		width: 100%;
+		margin-top: 70px;
+		background-color: rgba(255, 255, 255, 0);
+		/* 全透明背景 */
+		border-top: 1px solid rgba(255, 255, 255, 0.3);
+		/* 半透明边框 */
+		/* padding: 10px 0; */
+		text-align: center;
+		z-index: 2;
+	}
+
+	/* 页脚 */
+	.footer a {
+		margin: 5px;
+		text-decoration: none;
+		color: #8B9BAA;
+		font-weight: bold;
+	}
+
+	.text-a {
+		font-size: 1.8rem;
+		font-weight: 500;
+		margin-top: 18px;
+		margin-bottom: 19px;
+		text-align: center;
+	}
+
+	.text-b {
+		font-size: 1.1rem;
+		font-weight: 360;
+		margin-bottom: 19px;
+		text-align: left;
+	}
+
+	.views {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 40px;
+		max-height: 90vh;        /* 防止内容过长 */
+		overflow-y: auto;        /* 内容过长时可滚动 */
+	}
+
+	.button {
+		color: rgb(255, 255, 255);
+		background: rgb(15, 136, 235);
+		border-radius: 999999px;
+		font-size: 18px;
+		font-weight: 700;
+		width: 240px;
+		height: 42px;
+		border: none;
+		cursor: pointer;
+		margin-left: -120px;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		justify-content: center;
+		z-index: 1;
+		margin: 10px 0;
+	}
+
+	.successButton {
+		color: rgb(255, 255, 255);
+		background: rgb(197, 169, 110);
+		border-radius: 999999px;
+		font-size: 18px;
+		font-weight: 700;
+		width: 240px;
+		height: 42px;
+		border: none;
+		cursor: pointer;
+		margin-left: -120px;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		justify-content: center;
+		z-index: 1;
+		margin: 10px 0;
+	}
+</style>
+</html>
